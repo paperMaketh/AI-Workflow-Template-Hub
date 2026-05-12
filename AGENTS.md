@@ -47,6 +47,15 @@ This is a static documentation site designed to store prompt templates, workflow
 - **Do not duplicate existing components.** Reuse `TemplateCard`, `PageHeader`, `Callout`, etc.
 - **Do not add dependencies unnecessarily.** (No heavy external UI libraries; stick to basic Tailwind and standard Lucide React icons).
 - **Do not skip acceptance criteria.** Ensure the task exactly matches what was requested.
+- **Do not assume earlier edits are still present.** Re-open changed files when a user asks for a double check or when task state seems inconsistent.
+
+## Tool Lessons From Prior Work
+- This repository may be nested inside another folder that also has a `.git` directory. Run `git status` and `git diff` from the actual project root: `AI-Workflow-Template-Hub`.
+- The app uses `HashRouter`. When visually checking routes on Vite/GitHub Pages, use URLs like `http://127.0.0.1:5173/AI-Workflow-Template-Hub/#/brain-dump`, not `/AI-Workflow-Template-Hub/brain-dump`.
+- On Windows, starting Vite with `Start-Process npm` can fail with access denied. Use `npm.cmd` when launching through PowerShell, for example `Start-Process -FilePath "npm.cmd" -ArgumentList @('run','dev','--','--host','127.0.0.1','--port','5173')`.
+- If a dev server does not respond immediately, check whether it bound to the expected port before assuming the code failed. Capture stdout/stderr to temp files when starting background processes.
+- Browser verification may reject `networkidle` in this environment. Use `waitForLoadState({ state: "load" })` for local Vite checks.
+- Before reporting UI completion, confirm the rendered route contains the expected text and that obsolete duplicate content is absent.
 
 ## Reporting Format
 After making changes:
