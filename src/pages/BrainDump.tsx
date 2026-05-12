@@ -1,7 +1,8 @@
 import React from 'react';
+import BrainDumpWorkspace from '../components/BrainDumpWorkspace';
 import PageHeader from '../components/PageHeader';
 import TemplateCard from '../components/TemplateCard';
-import { BRAIN_DUMP_TEMPLATE, BRAIN_DUMP_PROCESSING_PROMPT } from '../data/templates';
+import { BRAIN_DUMP_PROCESSING_PROMPT } from '../data/templates';
 
 export default function BrainDump() { 
   return (
@@ -30,23 +31,19 @@ export default function BrainDump() {
         </div>
       </section>
 
-      <section className="space-y-8">
+      <section className="space-y-4">
         <div>
-          <h2 className="text-2xl font-semibold mb-6 flex items-center gap-2">
-            1. Brain Dump Template
+          <h2 className="text-2xl font-semibold mb-4 flex items-center gap-2">
+            1. Template / Edit Workspace
           </h2>
           <p className="text-on-surface-variant mb-4">
-            Fill this out with whatever raw thoughts you have. It doesn't need to be perfect, just complete enough to give the AI context.
+            Work from the clean template or create saved local drafts that stay in this browser.
           </p>
-          <TemplateCard 
-            title="Raw Brain Dump"
-            description="Use this format in your notes before prompting the AI."
-            content={BRAIN_DUMP_TEMPLATE}
-            tags={['Intake', 'Prep']}
-            context="Your notes app / draft"
-          />
+          <BrainDumpWorkspace />
         </div>
+      </section>
 
+      <section className="space-y-8">
         <div>
           <h2 className="text-2xl font-semibold mb-6 flex items-center gap-2">
             2. Brain Dump Processing Prompt
