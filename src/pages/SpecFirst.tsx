@@ -86,6 +86,10 @@ export default function SpecFirst() {
         <p className="text-on-surface-variant leading-relaxed">
           Use when a task is large, ambiguous, stateful, UX-heavy, SEO-sensitive, or likely to cause polish issues.
         </p>
+
+        <Callout type="info" title="Codex Skill Shortcut">
+          If the `spec-first-workflow` skill is installed, ask Codex to use it when creating or updating this task folder. The template below stays useful as the manual fallback and as the source shape the skill should preserve.
+        </Callout>
         
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
           <div className="bg-surface border border-[#334155] p-4 rounded-lg">

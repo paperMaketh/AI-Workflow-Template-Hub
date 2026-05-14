@@ -86,6 +86,10 @@ export default function DesignSkills() {
         <p className="text-lg text-on-surface-variant leading-relaxed">
           Skills are reusable instruction files for specific output types (e.g. Landing Page Skill, Product Page Skill, Mobile App Skill, Dashboard Skill, Motion Design Skill, Slide Deck Skill, Blog Layout Skill, Email Template Skill, Ad Creative Skill).
         </p>
+
+        <p className="text-lg text-on-surface-variant leading-relaxed">
+          Design skills are one category of agent skill. In a Codex workflow, `design-md-enforcer` is the focused skill for UI, CSS, layout, animation, and visual consistency work.
+        </p>
         
         <Callout type="info">
           Every skill should say: <em>"Always follow DESIGN.md. Do not invent new visual rules. Use the same brand DNA across all outputs."</em>

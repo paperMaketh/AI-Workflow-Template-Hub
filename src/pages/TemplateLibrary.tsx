@@ -19,7 +19,8 @@ import {
   FINAL_PRE_COMMIT_REVIEW_TEMPLATE,
   DESIGN_MD_EXTRACTION_TEMPLATE,
   AI_SKILL_CREATION_TEMPLATE,
-  AGENTS_MD_GENERATOR_TEMPLATE
+  AGENTS_MD_GENERATOR_TEMPLATE,
+  AGENT_SKILL_ROUTING_SECTION_TEMPLATE
 } from '../data/templates';
 
 export default function TemplateLibrary() {
@@ -189,10 +190,17 @@ export default function TemplateLibrary() {
         <div className="space-y-10">
           <TemplateCard 
             title="AGENTS.md Generator Template"
-            description="Spin up a new AGENTS.md for a project."
+            description="Spin up a new AGENTS.md with spec-first workflow and Codex skill routing."
             content={AGENTS_MD_GENERATOR_TEMPLATE}
-            tags={['AGENTS.md', 'Setup']}
+            tags={['AGENTS.md', 'Setup', 'Skills']}
             context="ChatGPT / Claude"
+          />
+          <TemplateCard 
+            title="Agent Skills Routing Section"
+            description="Retrofit an existing AGENTS.md with the standard Codex skill chain."
+            content={AGENT_SKILL_ROUTING_SECTION_TEMPLATE}
+            tags={['AGENTS.md', 'Skills', 'Codex']}
+            context="Codex / Project Agent"
           />
         </div>
       </section>

@@ -1,9 +1,33 @@
 import React from 'react';
 import PageHeader from '../components/PageHeader';
 import TemplateCard from '../components/TemplateCard';
+import Callout from '../components/Callout';
 import { AGENTS_MD_GENERATOR_TEMPLATE } from '../data/templates';
 
 export default function AgentsSetup() {
+  const skillRoutes = [
+    {
+      name: 'spec-first-workflow',
+      purpose: 'Create or update docs/tasks planning files from a brain dump, issue, or feature request.',
+    },
+    {
+      name: 'approved-task-implementation',
+      purpose: 'Implement one approved task from a spec-first task folder without scope creep.',
+    },
+    {
+      name: 'design-md-enforcer',
+      purpose: 'Keep UI, CSS, layout, animation, and visual review work aligned with DESIGN.md.',
+    },
+    {
+      name: 'qa-release-gate',
+      purpose: 'Check acceptance criteria, scope, design, build evidence, and handoff readiness.',
+    },
+    {
+      name: 'git-commit-assistant',
+      purpose: 'Produce a report-first commit review after QA, before any approved staging, commit, or push.',
+    },
+  ];
+
   return (
     <div className="max-w-5xl mx-auto space-y-12 pb-16 animate-in fade-in duration-300">
       <PageHeader
@@ -46,6 +70,47 @@ export default function AgentsSetup() {
         <p className="text-lg text-on-surface-variant leading-relaxed">
           AGENTS.md prevents repeated mistakes. It gives the agent consistent operating instructions. It reduces the need to repeat rules in every prompt.
         </p>
+      </section>
+
+      <section className="space-y-6">
+        <h2 className="text-2xl font-semibold border-b border-[#334155] pb-2">Agent Skills</h2>
+        <p className="text-lg text-on-surface-variant leading-relaxed">
+          Skills give Codex reusable specialist workflows. They are useful when the same process needs to happen across projects, such as creating spec-first task folders, implementing one approved task, enforcing DESIGN.md, running a final QA gate, or preparing an approval-gated commit report.
+        </p>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="bg-surface-low border border-[#334155] p-5 rounded-lg space-y-3">
+            <h3 className="font-medium text-on-background">How The Layers Work</h3>
+            <ul className="space-y-2 text-on-surface-variant text-sm">
+              <li><strong className="text-on-background">AGENTS.md</strong> defines repo-local operating rules.</li>
+              <li><strong className="text-on-background">DESIGN.md</strong> defines the visual source of truth.</li>
+              <li><strong className="text-on-background">docs/tasks</strong> stores durable task handoffs.</li>
+              <li><strong className="text-on-background">Codex skills</strong> provide reusable workflows Codex can load when needed.</li>
+            </ul>
+          </div>
+          <div className="bg-surface-low border border-[#334155] p-5 rounded-lg space-y-3">
+            <h3 className="font-medium text-on-background">Why They Help</h3>
+            <ul className="space-y-2 text-on-surface-variant text-sm">
+              <li>Less repeated prompting before every task.</li>
+              <li>More consistent spec creation and task handoff.</li>
+              <li>Cleaner boundaries between planning, implementation, design, and review.</li>
+              <li>Faster production work without loosening scope control.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          {skillRoutes.map((skill) => (
+            <div key={skill.name} className="bg-surface border border-[#334155] rounded-lg p-4">
+              <h3 className="font-mono text-sm text-primary mb-2">{skill.name}</h3>
+              <p className="text-sm text-on-surface-variant leading-relaxed">{skill.purpose}</p>
+            </div>
+          ))}
+        </div>
+
+        <Callout type="warning">
+          Skills do not replace review, tests, or human approval. Repo-local AGENTS.md, DESIGN.md, and the active task folder stay authoritative when they are more specific than a reusable skill.
+        </Callout>
       </section>
 
       <section className="space-y-6">

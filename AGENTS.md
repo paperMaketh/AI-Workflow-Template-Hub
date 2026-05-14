@@ -40,6 +40,14 @@ This is a static documentation site designed to store prompt templates, workflow
 - Read `DESIGN.md` before making any visual, CSS, or UI structural changes.
 - Ensure the result behaves responsively and handles overflow/long text cleanly.
 
+## Codex Skill Routing
+- Use `spec-first-workflow` when creating or refining spec-first task folders and prompt templates.
+- Use `approved-task-implementation` after the user approves one specific task from a task folder.
+- Use `design-md-enforcer` for UI, CSS, layout, component, animation, and design consistency changes.
+- Use `qa-release-gate` for final review, acceptance criteria checks, and release readiness.
+- Use `git-commit-assistant` after QA passes to produce a report-first commit review before staging, committing, or pushing.
+- This repo's `AGENTS.md`, `DESIGN.md`, and task docs remain the source of truth when they are more specific than a reusable skill.
+
 ## Recurring Mistakes to Avoid
 - **Do not modify unrelated files.**
 - **Do not invent new colors** outside of Tailwind standard tokens or established variables.

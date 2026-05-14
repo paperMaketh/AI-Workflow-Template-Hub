@@ -503,7 +503,20 @@ Agents should:
 - avoid unrelated file edits
 - ask for clarification when scope is unclear
 - create proposal.md, design.md, and tasks.md before large features
+- use installed Codex skills when they match the task workflow
 - report changed files after implementation
+
+Recommended Codex skills:
+- spec-first-workflow: use when turning a brain dump, issue, or feature request into task specs
+- approved-task-implementation: use after one specific task has been approved
+- design-md-enforcer: use for UI, CSS, layout, animation, and visual consistency work
+- qa-release-gate: use before commit, merge, release, or handoff review
+- git-commit-assistant: use after QA passes to produce a report-first commit review before staging, committing, or pushing
+
+Skill routing rule:
+- Repo-local AGENTS.md, DESIGN.md, and active docs/tasks files override generic skill guidance when they are more specific.
+- If a project uses different skill names, include the same routing intent with the local skill names.
+- Commit and push behavior must be approval-gated. Do not stage, commit, or push during report-only review.
 
 AGENTS.md should include:
 - project purpose
@@ -517,11 +530,31 @@ AGENTS.md should include:
 - animation rules if relevant
 - task workflow
 - spec-first workflow
+- agent skills / Codex skill routing
 - recurring mistakes to avoid
 - reporting format after changes
 - rules for not modifying unrelated files
 
 Output the complete AGENTS.md.
+`.trim();
+
+export const AGENT_SKILL_ROUTING_SECTION_TEMPLATE = `
+## Agent Skills / Codex Skill Routing
+
+Use installed Codex skills when they match the task workflow:
+
+- \`spec-first-workflow\`: create or update spec-first task folders from a brain dump, issue, or feature request.
+- \`approved-task-implementation\`: implement only one approved task from a spec-first task folder.
+- \`design-md-enforcer\`: handle UI, CSS, layout, animation, and visual consistency work against DESIGN.md.
+- \`qa-release-gate\`: verify scope, acceptance criteria, design consistency, and release readiness before handoff.
+- \`git-commit-assistant\`: produce a report-first commit review after QA passes.
+
+Rules:
+- Repo-local AGENTS.md, DESIGN.md, and active docs/tasks files override reusable skill guidance when they are more specific.
+- Skills improve repeatability but do not replace review, tests, or human approval.
+- \`git-commit-assistant\` must not stage, commit, or push during report-only review.
+- Commit only after the commit report is approved.
+- Push only after push is explicitly approved.
 `.trim();
 
 export const SPEC_FIRST_GENERATOR_TEMPLATE = `
